@@ -14,6 +14,8 @@ func Show() {
 	genap := deret_bil.genap()
 	fmt.Println("Bil. Genap : ", genap)
 
+	deret_bil.limit = 60
+
 	// ganjil
 	ganjil := deret_bil.ganjil()
 	fmt.Println("Bil. Ganjil : ", ganjil)
