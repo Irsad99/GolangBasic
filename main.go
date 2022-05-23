@@ -4,14 +4,14 @@ import (
 	"basicgo/task2"
 	"basicgo/task3"
 	"fmt"
-	"strconv"
-	"strings"
+	"math"
 )
 
 func main() {
 
 	// Number 1
-	Round(40.3786698685)
+	angka := 40.378
+	fmt.Printf("Hasil Pembulatan %.2f",Round(angka))
 
 	// Number 2
 	task2.Show()
@@ -23,41 +23,15 @@ func main() {
 
 	Balok2 := &Balok
 	Balok2.Panjang = 8.3
-	hitungBalok2(Balok2)
+	hitungBalok2(Balok)
 
 	Balok3 := &Balok
 	Balok3.Tinggi = 7.3
-	hitungBalok3(Balok3)
+	hitungBalok3(Balok)
 }
 
-func Round(angka float64) {
-	// getAngka and convert float to string
-	getAngka := strconv.FormatFloat(angka, 'f', -1, 64)
-	splitAngka := strings.Split(getAngka, "")
-
-	// Indexing
-	satuan := len(splitAngka) - 1
-	puluhan := len(splitAngka) - 2
-
-	// convert string to int
-	getSatuan, _ := strconv.Atoi(splitAngka[satuan])
-	getPuluhan, _ := strconv.Atoi(splitAngka[puluhan])
-
-	// proses pembulatan
-
-	if getSatuan >= 5 {
-		getPuluhan += 1
-		splitAngka[puluhan] = strconv.Itoa(getPuluhan)
-		splitAngka[satuan] = "0"
-	} else {
-		splitAngka[satuan] = "0"
-	}
-
-	// proses cetak ulang
-
-	for i := 0; i < len(splitAngka); i++ {
-		fmt.Printf(splitAngka[i])
-	}
+func Round(angka float64) float64 {
+	return (math.Round(angka*10)/10)
 }
 
 func hitungBalok1(benda task3.Hitung)  {
