@@ -17,11 +17,11 @@ func Show() {
 	deret_bil.limit = 60
 
 	// ganjil
-	ganjil := deret_bil.ganjil()
+	ganjil := deret.ganjil()
 	fmt.Println("Bil. Ganjil : ", ganjil)
 
 	// fibo
-	fibo := deret_bil.fibo()
+	fibo := deret.fibo()
 	fmt.Println("Bil. Fibonacci : ", fibo)
 }
 
@@ -29,53 +29,53 @@ type deretBilangan struct {
 	limit int
 }
 
-func (deret deretBilangan) prima() []int {
-	result := []int{}
-	for i := 1; i < deret.limit; i++ {
-		fact := 0
-		for j := 1; j < deret.limit; j++ {
-			if i%j == 0 {
-				fact++
+	func (deret *deretBilangan) prima() []int {
+		result := []int{}
+		for i := 1; i < deret.limit; i++ {
+			fact := 0
+			for j := 1; j < deret.limit; j++ {
+				if i%j == 0 {
+					fact++
+				}
+			}
+			if fact == 2 && i != 1 {
+				result = append(result, i)
 			}
 		}
-		if fact == 2 && i != 1 {
-			result = append(result, i)
-		}
+		return result
 	}
-	return result
-}
 
-func (deret deretBilangan) genap() []int {
-	result := []int{}
-	for i := 0; i < deret.limit; i++ {
-		if i%2 == 0 {
-			result = append(result, i)
+	func (deret *deretBilangan) genap() []int {
+		result := []int{}
+		for i := 0; i < deret.limit; i++ {
+			if i%2 == 0 {
+				result = append(result, i)
+			}
 		}
+		return result
 	}
-	return result
-}
 
-func (deret deretBilangan) ganjil() []int {
-	result := []int{}
-	for i := 0; i < deret.limit; i++ {
-		if i%2 != 0 {
-			result = append(result, i)
+	func (deret *deretBilangan) ganjil() []int {
+		result := []int{}
+		for i := 0; i < deret.limit; i++ {
+			if i%2 != 0 {
+				result = append(result, i)
+			}
 		}
+		return result
 	}
-	return result
-}
 
-func (deret deretBilangan) fibo() []int {
-	result := []int{}
-	bil1, bil2, bil3 := 0, 1, 0
+	func (deret *deretBilangan) fibo() []int {
+		result := []int{}
+		bil1, bil2, bil3 := 0, 1, 0
 
-	for i := 1; i < deret.limit; i++ {
-		if bil1 < deret.limit {
-			result = append(result, bil1)
+		for i := 1; i < deret.limit; i++ {
+			if bil1 < deret.limit {
+				result = append(result, bil1)
+			}
+			bil3 = bil1 + bil2
+			bil1 = bil2
+			bil2 = bil3
 		}
-		bil3 = bil1 + bil2
-		bil1 = bil2
-		bil2 = bil3
+		return result
 	}
-	return result
-}

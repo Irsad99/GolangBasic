@@ -19,15 +19,15 @@ func main() {
 	// Number 3
 	Balok := task3.Balok{Panjang: 7.3, Lebar: 5.3, Tinggi: 6.2}
 
-	hitungBalok1(Balok)
+	hitungBalok1(&Balok)
 
 	Balok2 := &Balok
 	Balok2.Panjang = 8.3
-	hitungBalok2(Balok)
+	hitungBalok2(Balok2)
 
 	Balok3 := &Balok
 	Balok3.Tinggi = 7.3
-	hitungBalok3(Balok)
+	hitungBalok3(Balok3)
 }
 
 func Round(angka float64) float64 {

@@ -6,7 +6,7 @@ type Balok struct {
 	Tinggi float64
 }
 
-func (blk Balok) Luas() float64 {
+func (blk *Balok) Luas() float64 {
 	p := blk.Panjang
 	l := blk.Lebar
 	t := blk.Tinggi
@@ -16,7 +16,7 @@ func (blk Balok) Luas() float64 {
 	return result
 }
 
-func (blk Balok) Keliling() float64 {
+func (blk *Balok) Keliling() float64 {
 	p := blk.Panjang
 	l := blk.Lebar
 	t := blk.Tinggi
@@ -26,7 +26,7 @@ func (blk Balok) Keliling() float64 {
 	return result
 }
 
-func (blk Balok) Volume() float64 {
+func (blk *Balok) Volume() float64 {
 	p := blk.Panjang
 	l := blk.Lebar
 	t := blk.Tinggi
